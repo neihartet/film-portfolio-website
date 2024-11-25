@@ -1,0 +1,277 @@
+@font-face {
+    font-family: 'BoldFont';
+    src: url('./assets/fonts/TheBoldFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bebas';
+    src: url('./assets/fonts/BebasRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TallFilms';
+    src: url('./assets/fonts/TallFilms.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'The Bold Font', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+body.home .name a:hover {
+    color: black;
+}
+
+/* Background Video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensures video covers the entire screen */
+    z-index: -1; /* Sends the video behind other content */
+}
+
+/* Overlay for Name and Navigation */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Name in the Top Left */
+.name {
+    text-decoration: none; /* Removes the underline */
+    color: white;   
+    font-size: 6rem;
+    font-family: "The Bold Font", sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: block;
+}
+
+.name a:link,
+.name a:visited,
+.name a:active {
+    text-decoration: none; /* Ensures underline is removed in all states */
+    color: white; /* Maintains consistent color */
+}
+
+.name a:hover {
+    color: black; /* The hover color is black */
+}
+
+/* Navigation Menu */
+.navbar {
+    margin-top: 42px; /* Moves the navbar down */
+    display: flex;
+    justify-content: flex-end; /* Aligns the navigation menu to the right */
+    padding-right: 20px; /* Optional: Adjusts spacing from the right edge */
+}
+
+.navbar ul {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: underline;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 10px;
+    transition: color 0.3s;
+    font-family: "The Bold Font", sans-serif;
+}
+
+.navbar a:hover {
+    color: #FFFF8F; /* Optional hover color */
+}
+
+/* Roles Container */
+.roles {
+    position: absolute;
+    bottom: 10%;  /* Positioned near the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 150px;
+    font-size: 3rem;
+}
+
+/* Individual Role Styling */
+.role {
+    opacity: 0;  /* Initially hidden */
+    color: white;
+    font-family: Arial, sans-serif;  /* Default font, we'll override for specific roles */
+    animation: fadeIn 1s forwards;  /* Add fadeIn animation */
+}
+
+/* Specific Fonts for Each Role */
+#writer {
+    font-family: 'Georgia', sans-serif;
+    text-decoration: bold;
+    animation-delay: 0.5s;
+}
+
+#director {
+    font-family: 'Georgia', serif;
+    text-decoration: bold;
+    animation-delay: 1s;
+}
+
+#editor {
+    font-family: 'Georgia', monospace;
+    animation-delay: 1.4s;
+}
+
+#producer {
+    font-family: 'Georgia', serif;
+    animation-delay: 2s;
+}
+
+/* Animation for Fading In */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);  /* Starts slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);  /* Moves to normal position */
+    }
+}
+
+.commercial-page {
+    background-color: black;
+    color: white; /* Ensures text is visible */
+    min-height: 100vh; /* Ensures the page covers the full viewport height */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.commercial-content {
+    margin-top: 120px;  /* Adds space below the navigation and name */
+    padding: 20px;      /* Optional: adds padding for content */
+}
+
+.commercial-content h1 {
+    text-align: center;
+    color: black;           /* Text color */
+    background-color: white;  /* White background */
+    font-size: 2rem;
+    font-family: "The Bold Font", sans-serif;
+    padding: 15px 10px 6px 10px;           /* Adds space inside the box */
+    margin-top: 20px;        /* Adds more space before the heading */
+    margin-bottom: 28px;        /* Adds more space before the heading */
+    border-radius: 15px;  
+}
+
+body.commercial-page .name a:hover {
+    color: #FFFF8F;
+}
+
+/* Two Columns for Videos */
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 20px; /* Space between videos */
+    padding: 20px;
+}
+
+.video-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+.video-item video {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Keeps the video ratio consistent */
+    object-fit: contain; /* Ensures the video fills the space */
+    aspect-ratio: 16 / 9;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.video-item:hover video {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.video-title {
+    position: absolute; /* Allows precise positioning within the container */
+    bottom: 10px; /* Adjusts vertical placement from the bottom */
+    left: 10px; /* Adjusts horizontal placement from the right */
+    text-align: left; /* Aligns text to the right */
+    font-size: 1rem; /* Adjust size as needed */
+    font-family: Arial, sans-serif; /* Optional font */
+}
+
+.video-title .title {
+    color: white; /* Title text in white */
+    font-weight: bold; /* Makes the title stand out */
+}
+
+.video-title .company {
+    color: grey; /* Company text in grey */
+    font-weight: normal; /* Normal weight for the company */
+    font-size: 0.9rem; /* Slightly smaller size than the title */
+}
+
+.video-item iframe {
+    width: 100%; /* Full width inside the grid cell */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 ratio for YouTube videos */
+    border: none; /* Removes default border */
+    transition: transform 0.3s ease; /* Adds smooth hover effect */
+}
+
+/* Hover effect for iframe */
+.video-item:hover iframe {
+    transform: scale(1.01); /* Slight zoom on hover */
+}
+
+/* Hide YouTube controls until hover */
+.video-item iframe {
+    width: 100%; /* Full width inside the grid cell */
+    max-width: 10px;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+.video-item:hover iframe {
+    pointer-events: auto; /* Enables interaction on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* Stacks videos vertically */
+    }
+}

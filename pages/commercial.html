@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercials | Portfolio Website</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Adjust path to style.css -->
+</head>
+<body class="commercial-page">
+    <!-- Overlay content -->
+    <div class="overlay">
+        <!-- Name -->
+        <div class="name">
+            <a href="../index.html">ETHAN NEIHART</a>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">Narrative</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="music-video.html">Music Video</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page-specific content -->
+    <div class="commercial-content">
+        <h1>COMMERCIAL PROJECTS</h1>
+        <div class="video-grid">
+            <!-- 2B2E -->
+            <div class="video-item">
+                <a href="content/2B2E.html" class="video-item">
+                    <video id="video-2B2E" poster="../assets/images/2B2Eposter.jpg" muted loop>
+                        <source src="../assets/videos/2B2E.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-title">
+                        <span class="title">"To Be Twice Exceptional"</span>  
+                         <br>  
+                        <span class="company">Twice Exceptional</span>
+                    </div>
+                </a>
+            </div>
+            <!-- The Opera -->
+            <div class="video-item">
+                <a href="theOpera.html" class="video-item">
+                    <video id="video-Opera" poster="../assets/images/operaPoster.jpg" muted loop>
+                        <source src="../assets/videos/TheOpera.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-title">
+                        <span class="title">"The Opera"</span>  
+                         <br>  
+                        <span class="company">Twice Exceptional</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Unbox The Exceptional -->
+            <div class="video-item">
+                <a href="unboxTheExceptional.html" class="video-item">
+                    <video poster="../assets/images/UnboxPoster.jpg">
+                        <source src="../assets/videos/TheOpera.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-title">
+                        <span class="title">"Unbox The Exceptional"</span>  
+                         <br>  
+                        <span class="company">Twice Exceptional</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Installation V -->
+            <div class="video-item">
+                <a href="installationV.html" class="video-item">
+                    <video id="video-InstallationV" poster="../assets/images/Vposter.jpg" muted loop>
+                        <source src="../assets/videos/InstallationV.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-title">
+                        <span class="title">"Installation V"</span>  
+                         <br>  
+                        <span class="company">Twice Exceptional</span>
+                    </div>
+                </a>
+            </div>
+    </div>
+
+    <script>
+        // Get all video items
+        const videoItems = document.querySelectorAll('.video-item video');
+        
+        videoItems.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+                video.play();  // Start the video on hover
+            });
+
+            video.addEventListener('mouseleave', () => {
+                video.pause();  // Pause the video when hover ends
+                video.currentTime = 0;  // Reset to the start of the video
+                video.load(); // Reset the poster
+            });
+        });
+    </script>
+
+</body>
+</html>

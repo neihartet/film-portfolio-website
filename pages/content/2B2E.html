@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Be Twice Exceptional | Portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            height: 100vh;
+        }
+
+        .video-container {
+            flex: 2;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 1500px;
+            aspect-ratio: 16 / 9;
+            padding-left: 10;
+            border: none;
+        }
+
+        .details-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center content */
+            align-items: flex-start; /* Align to the left */
+            padding: 20px;
+            max-height: 100vh;
+            position: relative;
+        }
+
+        .details-container::before {
+            content: "";
+            display: block;
+            height: 65%; /* Adjust this percentage for shorter lines */
+            width: 2px;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .details-title {
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+            font-family: 'The Bold Font', sans-serif;
+            font-weight: bold;
+        }
+
+        .details-brand {
+            margin-bottom: 5px;
+            font-family: 'The Bold Font', sans-serif;
+            font-size: 1.2rem;
+            color: grey;
+        }
+
+        /* Scrollable Crew List */
+        .crew-container {
+            overflow-y: auto;
+            height: calc(56.25vw * 0.5625); /* Matches the height of the video */
+            max-height: calc(1000px * 0.5625); /* Matches the max height of video */
+        }
+
+        .crew-list {
+            font-family: 'Bebas', sans-serif;
+            font-size: 1rem;
+            padding-right: 0px;
+        }
+
+        .crew-list .underline {
+            text-decoration: underline;
+            margin: 0px 0; /* Optional: Add space around the underlined sections */
+        }
+
+        /* Scrollbar styling (optional) */
+        .details-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .details-container::-webkit-scrollbar-thumb {
+            background: white;
+            border-radius: 4px;
+        }
+
+        .details-container::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        .fullscreen-button {
+            position: absolute;
+            top: 20px;
+            padding-left: 40px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 55px;
+            cursor: pointer;
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+
+        .fullscreen-button:hover {
+            color: #FF0000; /* Fully opaque on hover */
+        }
+
+        .exit-button {
+            position: absolute;
+            top: 15px;
+            right: 40px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 40px;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+
+        .exit-button:hover {
+            color: #FF0000; /* Fully opaque on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Full Screen Button -->
+    <button class="fullscreen-button" onclick="toggleFullscreen()">⛶</button>
+
+    <!-- Exit Button (close the page) -->
+    <button class="exit-button" onclick="window.history.back()">🅇</button>
+
+    <!-- Video Section -->
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/yw4Do191mrc" 
+            title="To Be Twice Exceptional"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Details Section -->
+    <div class="details-container">
+        <div class="details-title">"To Be Twice Exceptional"</div>
+        <div class="details-brand">Twice Exceptional</div>
+        <div class="crew-container">
+            <div class="crew-list">
+                <strong>Writer & Director :</strong> Ethan Neihart<br>
+                <strong>Producer :</strong> Owen Klee<br>
+                <strong>Executive Producers :</strong> Alex Bean & Josh Aronow<br>
+                <strong>Director of Photography :</strong> Carter Burkhart<br>
+                <strong>1st Assistant Director :</strong> Jake Barnett<br>
+                <strong>Sound Mixer & Boom Op :</strong> Grace Cabrera<br>
+                <br>
+                <strong>Editor :</strong> Ethan Neihart<br>
+                <strong>Colorist :</strong> Carter Burkhart<br>
+                <strong>Final Sound Mix :</strong> Connor Rose<br>
+                <br>
+                <span class="underline"><strong>Cast</strong></span><br>
+                Ryan Yauger<br>
+                Thomas Tiggleman<br>
+                <br>
+                <span class="underline"><strong>Modeling for 2E</strong></span><br>
+                Rory Smith<br>
+                DeAndre Christian aka Nox<br>
+                Kayla Okninski<br>
+                Xander Piurek<br>
+                Phoebe Selke<br>
+                Xander Wilson<br>
+                Claire West<br>
+                Sean Behringer<br>
+                Sadie O'Conor<br>
+                Maren Mager<br>
+                Xavier DeVany<br>
+                Ellie Willhite<br>
+                Catherine O'Connor<br>
+                Julio Mora<br>
+                & Ryan Kosikov<br>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleFullscreen() {
+            const iframe = document.querySelector('.video-container iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Safari */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE11 */
+                iframe.msRequestFullscreen();
+            } else {
+                alert("Fullscreen mode is not supported in your browser.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
